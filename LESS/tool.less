@@ -1,0 +1,69 @@
+/*如果属性的值为数字（引号引起来的），那么属性选择起的值也要加引号*/
+
+.radius(@i:0)when(@i<=20){
+  *[radius="@{i}"]{
+    border-radius: (1px*@i)!important;
+  }
+  .radius(@i+1);
+}
+.radius();
+/*如果属性的值为数字（引号引起来的），那么属性选择起的值也要加引号*/
+
+.padding(@i:0)when(@i<=20){
+  *[padding="@{i}"]{
+    padding: (1px*@i)!important;
+  }
+  *[paddingtop="@{i}"]{
+    padding-top: (1px*@i)!important;
+  }
+  *[paddingbottom="@{i}"]{
+    padding-bottom: (1px*@i)!important;
+  }
+  *[paddingleft="@{i}"]{
+    padding-left: (1px*@i)!important;
+  }
+  *[paddingright="@{i}"]{
+    padding-right: (1px*@i)!important;
+  }
+  .padding(@i+1);
+}
+.padding();
+
+/*外边距*/
+.margin(@i:0)when(@i<=20){
+  *[margin="@{i}"]{
+    margin: (1px*@i)!important;
+  }
+  *[margintop="@{i}"]{
+    margin-top: (1px*@i)!important;
+  }
+  *[marginbottom="@{i}"]{
+    margin-bottom: (1px*@i)!important;
+  }
+  *[marginleft="@{i}"]{
+    margin-left: (1px*@i)!important;
+  }
+  *[marginright="@{i}"]{
+    margin-right: (1px*@i)!important;
+  }
+  .margin(@i+1);
+}
+.margin();
+/*强制左浮动*/
+*[pushleft]{
+  float: left!important;
+}
+/*强制右浮动*/
+*[pushright]{
+  float: right!important;
+}
+/*对齐方式*/
+*[textalign-center]{
+  text-align: center!important;
+}
+*[textalign-left]{
+  text-align: left!important;
+}
+*[textalign-right]{
+  text-align: right!important;
+}

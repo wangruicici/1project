@@ -1,0 +1,164 @@
+@charset "utf-8";
+@import "var";
+@bg-one-s:#283048;
+@bg-one-e: #4c5984;
+
+@bg-two-s:#EC6F66;
+@bg-two-e: #F3A183;
+
+@bg-three-s:#ED4264;
+@bg-three-e: #FFEDBC;
+
+@bg-four-s:#1CD8D2;
+@bg-four-e: #414345;
+
+@bg-five-s:#134E5E;
+@bg-five-e: #71B280;
+
+@bg-six-s:#02AAB0;
+@bg-six-e: #00CDAC;
+
+@color-Yf6:#f6b908;
+
+
+
+
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-face {
+  font-family: "graydesign";
+  src: url('../font/Gray Design_Bold.otf');
+}
+@font-face {
+  font-family: "sketchrockwell";
+  src: url('../font/SketchRockwell-Bold.ttf');
+}
+@font-face {
+  font-family: "levibrush";
+  src: url('../font/LeviReBrushed.ttf');
+}
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-yaHei:       Microsoft YaHei, SimSun, Arial, Helvetica, sans-serif;
+@graydesign:                 graydesign;
+@sketchrockwell:      sketchrockwell;
+@levibrush:      levibrush;
+@webkit: -webkit-;
+@moz: -moz-;
+@width-800: 800px;
+
+/*兼容各个版本浏览器属性的前缀*/
+.jianrong(@type:border-sizing,@type-value:border-box){
+    @{webkit}@{type}:@type-value;
+    @{moz}@{type}:@type-value;
+    @{type}:@type-value;
+}
+
+/*背景图片渐变*/
+.bg-ground(@bg-s:#ccc,@bg-e:#ccc){
+  background: @bg-s;
+  background: -webkit-linear-gradient(to left, @bg-s , @bg-e);
+  background: linear-gradient(to left, @bg-s , @bg-e);
+  background: -o-gradient(to left, @bg-s , @bg-e);
+}
+/*设置大小*/
+/*.size(@name:name,@value:value,@i:0){
+    @{name}:@value;
+}*/
+
+/*.radius(@i:0)when(@i<=20){
+  *[radius="@{i}"]{
+    border-radius: (1px*@i)!important;
+  }
+  .radius(@i+1);
+}
+.radius();*/
+
+
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+
+/*background: #283048; !* fallback for old browsers *!
+background: -webkit-linear-gradient(to left, #283048 , #859398); !* Chrome 10-25, Safari 5.1-6 *!
+background: linear-gradient(to left, #283048 , #859398); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+
+html{
+  font-size:62.5%; /* 10÷16=62.5% */
+}
+
+body{
+  //font-size:12px;
+  font-size:1.2rem ; /* 12÷10=1.2 */
+}
+
+p{
+  //font-size:14px;
+  font-size:1.4rem;
+}
+/*动画*/
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, .95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-name: rubberBand;
+}
+
+
+/*动画函数*/
+.cireleAnimate(@i:0,@angle:0,@radius:15)when(@i<=100){
+  @select:1%*@i;
+  @{select}{
+    -webkit-transform:translate(cos(@angle*pi()/180)*@radius*1px,sin(@angle*pi()/180)*@radius*1px);
+  }
+  .cireleAnimate(@i+1,@angle+3.6);
+}
+@-webkit-keyframes cireleAnimate{
+  .cireleAnimate();
+}
+
+.waveAnimate(@i:0,@angle:3)when(@i<=10){
+  @select:10%*@i;
+  @{select}{
+    -webkit-transform:translate(@i*10*1px,@angle*1px);
+  }
+  .waveAnimate(@i+1,-@angle);
+}
+@-webkit-keyframes waveAnimate{
+  .waveAnimate();
+}
+
+.centerCircleAnimate(@i:0,@angle:0)when(@i<=100){
+  @select:1%*@i;
+  @{select}{
+    -webkit-transform:rotate(@angle*1deg);
+  }
+  .centerCircleAnimate(@i+1,@angle+3.6);
+}
+@-webkit-keyframes centerCircleAnimate{
+  .centerCircleAnimate();
+}

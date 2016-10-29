@@ -1,0 +1,7 @@
+/*清除浏览器默认样式*/
+body,body,p,ul,h1,h2,h3,h4,h5,h6,ol,dl,dd,input,ul,ol{
+margin:0;padding:0;list-style:none;font-weight:normal;font-family:"微软雅黑";
+font-size:14px;}
+a{text-decoration:none;color:#333;}
+img{border:0;}
+del{color:#8c8c8c;}
